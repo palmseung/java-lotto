@@ -25,7 +25,7 @@ public class RankTest {
     void getAllPrizeMoneyTest() {
         //given
         List<Rank> ranks = Arrays.asList(BLANK, SECOND, BLANK, FIFTH, BLANK);
-        MatchResults matchResults = MatchResults.reflectAll(ranks);
+        MatchResults matchResults = MatchResults.increaseAllMatchCounts(ranks);
 
         //when
         int allPrizeMoney = Rank.getAllPrizeMoney(ranks);

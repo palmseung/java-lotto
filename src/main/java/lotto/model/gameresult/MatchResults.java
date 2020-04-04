@@ -16,10 +16,10 @@ public class MatchResults {
         this.results = Collections.unmodifiableMap(results);
     }
 
-    public static MatchResults reflectAll(List<Rank> ranks) {
+    public static MatchResults increaseAllMatchCounts(List<Rank> ranks) {
         Map<Rank, Integer> results = setUp();
         ranks.stream()
-                .forEach(it -> reflectWhenRankIsFound(results, it));
+                .forEach(it -> increaseMatchCount(results, it));
         return new MatchResults(results);
     }
 
@@ -37,7 +37,7 @@ public class MatchResults {
         return result;
     }
 
-    private static void reflectWhenRankIsFound(Map<Rank, Integer> results, Rank rank) {
+    private static void increaseMatchCount(Map<Rank, Integer> results, Rank rank) {
         Integer currentCount = results.get(rank);
         results.replace(rank, currentCount + ONE_MORE_COUNT);
     }

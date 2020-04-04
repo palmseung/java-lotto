@@ -17,7 +17,7 @@ public class MatchResultsTest {
     void reflectTest() {
         List<Rank> ranks = Arrays.asList(BLANK, SECOND, THIRD, BLANK, BLANK, BLANK);
 
-        MatchResults matchResults = MatchResults.reflectAll(ranks);
+        MatchResults matchResults = MatchResults.increaseAllMatchCounts(ranks);
 
         assertThat(matchResults.getCount(BLANK)).isEqualTo(4);
     }
